@@ -1,12 +1,14 @@
-const express = require('express')
-const routes = require('./routes/index')
-const path = require('path')
-const bodyParser = require('body-parser')
+require(dotenv).config()
+
+import express, { static } from 'express'
+import routes from './routes/index'
+import { join } from 'path'
+import { urlencoded } from 'body-parser'
 
 const app = express()
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(static(join(__dirname, 'public')))
+app.use(urlencoded({extended:false}))
 
 app.use((req, res, next) => {
 	req.timestamp = new Date().toString()
@@ -14,7 +16,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/', routes)
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', join(__dirname, 'views'))
 app.set('view engine', 'hjs')
 
 // Server start...
