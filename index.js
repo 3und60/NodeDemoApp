@@ -19,6 +19,6 @@ app.use('/', routes)
 app.set('views', join(__dirname, 'views'))
 app.set('view engine', 'hjs')
 
-// Server start...
+// Server starting...
 app.listen(8080)
 console.log('Server running on http://localhost:8080')
