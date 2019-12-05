@@ -17,6 +17,6 @@ app.use('/', routes)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hjs')
 
-
+// Server start...
 app.listen(5000)
 console.log('Server running on http://localhost:5000')
